@@ -7,13 +7,15 @@
 
 #ifndef RESPONSE_H_
 #define RESPONSE_H_
+#include "Code.h"
 
 class Response {
 public:
 	Response();
 	bool checkWin();
-	bool checkSame(Coder secret, Code guess);
+	bool checkSame(Code secret, Code guess);
 	int getCorrect();
+	void printNumCorrect();
 	virtual ~Response();
 private:
 	int numCorrect;
