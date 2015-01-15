@@ -4,6 +4,8 @@ Includes methods to set the code, and check if and how well another code matches
 Notice: the stored code is assumed to be the secret, and the guess must be passed in.
 */
 
+#include <vector>
+
 // stores, sets, returns, and checks code values
 Class code 
 {
@@ -23,7 +25,7 @@ Class code
 
 // Checks the number of correct guesses which involve the guess having a correct number
 // in the correct position. Assumes that the parameter passed to the function is the guess.
-code::checkcorrect(const code gs)
+const int code::checkcorrect(const code gs)
 {
 	// count the number of equal values in corresponding position
 	int temp=0; for(int ii=0;ii<4;ii++) {if(cd.getval(ii)==gs.getval(ii)){temp++;}}
@@ -34,7 +36,7 @@ code::checkcorrect(const code gs)
 // in the wrong position. Only reports a maximum of one correct value for each position in 
 // the code. Assumes that the parameter passed to the function is the guess.
 
-code::checkincorrect(const code gs)
+const int code::checkincorrect(const code gs)
 {
 	// create image of guess corresopnding to code vectors 
 	bool image[4] = {false,false,false,false};
