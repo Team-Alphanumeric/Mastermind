@@ -25,4 +25,4 @@ private:
 	int numIncorrect;
 };
 
-#endif /* RESPONSE_H_ */
+#endif /* RESPONSE_H_ */ 
