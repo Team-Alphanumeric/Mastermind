@@ -41,7 +41,7 @@ const int Code::getVal(const int index)
 }
 // Checks the number of correct guesses which involve the guess having a correct number
 // in the correct position. Assumes that the parameter passed to the function is the guess.
-int Code::checkcorrect(Code gs)
+int Code::checkCorrect(Code gs)
 {
 	// count the number of equal values in corresponding position
 	int temp=0;
@@ -59,7 +59,7 @@ int Code::checkcorrect(Code gs)
 // in the wrong position. Only reports a maximum of one correct value for each position in
 // the code. Assumes that the parameter passed to the function is the guess.
 
-int Code::checkincorrect(Code gs)
+int Code::checkIncorrect(Code gs)
 {
 	// create image of guess corresopnding to code vectors
 	bool image[4] = {false,false,false,false};
