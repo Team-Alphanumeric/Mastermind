@@ -35,29 +35,20 @@ void Code::setCode(int arr[])
 		cd[ii] = arr[ii];
 	}
 }
-int Code::getVal( int a)
+const int Code::getVal(const int index)
 {
-	if(a<4)
-	{
-		return cd[a];
-	}
-	else
-	{
-		cout << "Bound error in 'getVal' class!" << endl;
-	}
-	return -1;
+	return cd[index];
 }
 // Checks the number of correct guesses which involve the guess having a correct number
 // in the correct position. Assumes that the parameter passed to the function is the guess.
-int Code::checkcorrect(const Code gs)
+int Code::checkcorrect(Code gs)
 {
 	// count the number of equal values in corresponding position
 	int temp=0;
 	for(int ii=0;ii<4;ii++)
 	{
-		if(1)
+		if(cd[ii]==gs.getVal(ii))
 		{
-			int val = gs.getVal(ii); // cd[ii]; // ==gs.getVal(ii));
 			temp++;
 		}
 	}
@@ -68,7 +59,7 @@ int Code::checkcorrect(const Code gs)
 // in the wrong position. Only reports a maximum of one correct value for each position in
 // the code. Assumes that the parameter passed to the function is the guess.
 
-int Code::checkincorrect(const Code gs)
+int Code::checkincorrect(Code gs)
 {
 	// create image of guess corresopnding to code vectors
 	bool image[4] = {false,false,false,false};
@@ -81,7 +72,13 @@ int Code::checkincorrect(const Code gs)
 			// ignore corresponding numbers and already matched numbers in the guess
 			if((jj!=ii) && (!image[jj]))
 			// if numbers match, denote in the image and move to next index in secret
-			{ if(cd.getval(ii) == gs.getval(jj)) { image[jj] = true; break; } }
+			{
+				if(cd[ii] == gs.getVal(jj))
+				{
+					image[jj] = true; break;
+				}
+
+			}
 		}
 	}
 	// count the number of denoted matches in the image
