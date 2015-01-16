@@ -20,17 +20,18 @@ Notice: the stored code is assumed to be the secret, and the guess must be passe
 class Code {
 public:
 	Code();
-
 	Code(int arr[]);
 	// set the code values
 	void setCode(int arr[]);
-	int checkcorrect(Code gs); // check how many values are in tthe correct position
-	int checkincorrect(Code gs); // check how many values are in incorrect position
+	void printCode();
+	void setRandomCode();
+	int checkCorrect(Code gs); // check how many values are in the correct position
+	int checkIncorrect(Code gs); // check how many values are in incorrect position
 	// get the indexed values of a code
 	const int getVal(const int index);
 	virtual ~Code();
 protected:
-	vector <int> cd;
+	std::vector<int> cd;
 };
 
 #endif /* CODE_H_ */
