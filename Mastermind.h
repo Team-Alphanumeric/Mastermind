@@ -21,9 +21,6 @@ protected:
 	Code secret;
 	Code guess;
 	Response r1;
-private:
-	int guesscount;
-
 };
 
 #endif /* MASTERMIND_H_ */
