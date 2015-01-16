@@ -15,7 +15,8 @@ public:
 	Mastermind();
 	void printSecret();
 	void humanGuess();
-	void getResponse();
+	bool getResponse();
+	void playGame();
 	virtual ~Mastermind();
 protected:
 	Code secret;
