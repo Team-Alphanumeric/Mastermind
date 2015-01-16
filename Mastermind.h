@@ -15,11 +15,14 @@ public:
 	Mastermind();
 	void printSecret();
 	void humanGuess();
+	void playGame();
 	virtual ~Mastermind();
 protected:
 	Code secret;
 	Code guess;
 	Response r1;
+private:
+	int guesscount;
 
 };
 
