@@ -15,12 +15,13 @@ public:
 	Mastermind();
 	void printSecret();
 	void humanGuess();
-	void playGame();
+	void getResponse();
 	virtual ~Mastermind();
 protected:
 	Code secret;
 	Code guess;
 	Response r1;
+
 };
 
 #endif /* MASTERMIND_H_ */
