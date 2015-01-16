@@ -13,16 +13,16 @@ class Response {
 public:
 	Response();
 	bool checkWin();
-	bool checkSame(Response r);
+	bool checkSame();
 	int getCorrect();
 	int getIncorrect();
-	void setCorrect();
-	void setIncorrect();
-	void printResponse();
+	void printNumCorrect();
+	void setNumCorrect(int const newNumCorrect);
+	void setNumIncorrect(int const newNumIncorrect);
 	virtual ~Response();
 private:
 	int numCorrect;
 	int numIncorrect;
 };
 
-#endif /* RESPONSE_H_ */ 
+#endif /* RESPONSE_H_ */
