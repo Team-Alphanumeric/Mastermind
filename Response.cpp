@@ -49,8 +49,10 @@ bool Response::checkWin()
 	if(numCorrect == 4)
 	{
 		//returns true which indicates the human guessed the code
+		cout << "You have guessed the right code!!!! You won!! now play again...." << ".\n";
 		return true;
 	}
+	cout << "Well you guessed it wrong...try again...\n";
 	//returns false which indicates that the human as not guessed the secret code yet
 	return false;
 }
