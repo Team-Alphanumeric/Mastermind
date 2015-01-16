@@ -13,9 +13,12 @@ class Response {
 public:
 	Response();
 	bool checkWin();
-	bool checkSame(Code secret, Code guess);
+	bool checkSame(Response r);
 	int getCorrect();
-	void printNumCorrect();
+	int getIncorrect();
+	void setCorrect();
+	void setIncorrect();
+	void printResponse();
 	virtual ~Response();
 private:
 	int numCorrect;
