@@ -5,7 +5,7 @@
  *      Author: alex
  */
 
-#include <iostream>
+#include <iostream
 #include "Mastermind.h"
 using namespace std;
 #include <vector>
@@ -19,22 +19,36 @@ Mastermind::Mastermind()
 void Mastermind::printSecret()
 {
 	//prints out the secret code to the user
-	cout << "The secret code is " << /*get secret code function in the Code class */endl;
+	cout << "The secret code is: " <<endl; secret.printSecret();
 }
 //This functino prompts the user to enter his guess which then stores it as a vector
 void Mastermind::humanGuess()
 {
-	//creates a variable i that is used for the for loop
-	int i;
 	//creates the vector for the guess that stores
-
-	for(i=0;i<6;i++)
+	int nums[4];
+	printf("\nTake another guess!!\t");
+	for(int i=0;i<4;i++)
 	{
-		//scanf("%d", humanGuess[i
-		//this takes the numbers entered by the user and stores them in the class code which stores the guess response
-		//cin >> guess[i];
+		scanf("%d", (nums+i));
 	}
-
+	// input the values into the Code object
+	guess.setcode(nums); 
+	return;
+}
+// activates iterative game play until the codebreaker or codemaker wins (after 10 guess)
+void Mastermind::playGame()
+{
+	// print the secret code for testing purposes
+	this.printSecret();
+	
+	const int cnt=10; // number of guesses in a game
+	
+	// determine if game has ended: if not, guess code and print response
+	while(!(r1.checkWin()) && (cnt<10))
+	{ this.humanGuess(); r1.printNumCorrect(); }
+	
+	// that's all folks!
+	return;	
 }
 Mastermind::~Mastermind() {
 	// TODO Auto-generated destructor stub
