@@ -24,10 +24,10 @@ public:
 	Code(int arr[]);
 	// set the code values
 	void setCode(int arr[]);
-	int checkcorrect(const Code gs); // check how many values are in tthe correct position
-	int checkincorrect(const Code gs); // check how many values are in incorrect position
+	int checkcorrect(Code gs); // check how many values are in tthe correct position
+	int checkincorrect(Code gs); // check how many values are in incorrect position
 	// get the indexed values of a code
-	int getVal(int a);
+	const int getVal(const int index);
 	virtual ~Code();
 protected:
 	vector <int> cd;
