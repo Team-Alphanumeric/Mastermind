@@ -15,41 +15,43 @@ Response::Response()
 	numCorrect = -1;
 	numIncorrect = -1;
 }
-//This function checks to see if the two codes are the same and outputs true if they are the same
+//This function checks to see if the two responses are the same and outputs true if they are the same
 //and outputs false if they are differnt
-//this is the same as the numCorrect method and if the output is not 4 then they are different
-
-bool Response::checkSame(Code secret, Code guess)
+bool Response::checkSame(Response r)
 {
-	//call the numCorrect method here to check to see if they are the same
-	//if the numCorrect=4 then the two responses are the same
-	if(numCorrect ==4)
-	{
-		//returns true if the numCorrect =4 because they are equal
-		return true;
-	}
-	//otherwise return false if the numCorrect is not equal to 4
-	return false;
+	// check if response data matches this object's data
+	return ((numCorrect==r.getCorrect())&&(numIncorrect==r.getIncorrect()));
 }
-void Response::printNumCorrect()
+void Response::printResponse()
 {
-
+	// print data to the screen
+	printf("Correct: %i\nIncorrect: %i\n",numCorrect,numIncorrect); return;
 }
+//to check if the user won, it checks to see if the numCorrect is 4, if it is then the
+//reponses are the same so the guesser won
 bool Response::checkWin()
 {
-	//to check if the user won, it checks to see if the numCorrect is 4, if it is then the
-	//reponses are the same so the guesser won
-	if(numCorrect == 4)
-	{
-		//returns true which indicates the human guessed the code
-		return true;
-	}
-	//returns false which indicates that the human as not guessed the secret code yet
-	return false;
+	return (numCorrect == 4); 
 }
-int Response::getCorrect()
+
+const int Response::getCorrect()
 {
 	return numCorrect;
+}
+
+const int Response::getIncorrect()
+{
+	return numIncorrect;
+}
+// set the value of the number of correct guesses for this response
+void Response::setCorrect(const int n)
+{
+	numCorrect=n; return;
+}
+// set the value of the number of incorrect guesses for this response
+void Response::setIncorrect(const int n)
+{
+	numIncorrect=n; return;
 }
 
 Response::~Response() {
