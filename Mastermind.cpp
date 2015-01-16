@@ -5,7 +5,7 @@
  *      Author: alex
  */
 
-#include <iostream
+#include <iostream>
 #include "Mastermind.h"
 using namespace std;
 #include <vector>
