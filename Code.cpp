@@ -10,10 +10,13 @@
 using namespace std;
 #include <iostream>
 #include <cstdlib>
+#include <stdio.h>
 
 
 Code::Code()
 {
+	cd.resize(5);
+	int test;
 	// TODO Auto-generated constructor stub
 	 for(int ii=0;ii<4;ii++)
 	 {
@@ -86,4 +89,19 @@ int Code::checkIncorrect(Code gs)
 	// return number of matches
 	return temp;
 }
-
+void Code::setRandomCode()
+{
+	cout << "Setting Random Code for Secret Code.\n";
+	for(int ii=0;ii<4;ii++)
+	 {
+		 cd[ii] = (int) rand() % 6;
+	 }
+}
+void Code::printCode()
+{
+	for(int ii=0;ii<4;ii++)
+	{
+		cout << cd[ii];
+	}
+	cout << "\n";
+}
