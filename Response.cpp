@@ -6,6 +6,8 @@
  */
 
 #include "Response.h"
+using namespace std;
+#include <iostream>
 
 //constructor method for the Response class
 Response::Response()
@@ -15,45 +17,63 @@ Response::Response()
 	numCorrect = -1;
 	numIncorrect = -1;
 }
-//This function checks to see if the two responses are the same and outputs true if they are the same
+//This function checks to see if the two codes are the same and outputs true if they are the same
 //and outputs false if they are differnt
-bool Response::checkSame(Response r)
+//this is the same as the numCorrect method and if the output is not 4 then they are different
+
+bool Response::checkSame()
 {
-	// check if response data matches this object's data
-	return ((numCorrect==r.getCorrect())&&(numIncorrect==r.getIncorrect()));
+	//if the numCorrect=4 then the two responses are the same
+	if(numCorrect ==4)
+	{
+		//returns true if the numCorrect =4 because they are equal
+		return true;
+	}
+	else
+	{
+		//prints out the number of correct and incorrect digits
+		cout << "The number of digits in the correct position is " << numCorrect << ".\n";
+		cout << "The number of digits in the incorrect position " << numIncorrect << ".\n";
+	}
+	//otherwise return false if the numCorrect is not equal to 4
+	return false;
 }
-void Response::printResponse()
+void Response::printNumCorrect()
 {
-	// print data to the screen
-	printf("Correct: %i\nIncorrect: %i\n",numCorrect,numIncorrect); return;
+	cout << "The number of digits in the correct position is " << numCorrect << ".\n";
 }
-//to check if the user won, it checks to see if the numCorrect is 4, if it is then the
-//reponses are the same so the guesser won
 bool Response::checkWin()
 {
-	return (numCorrect == 4); 
+	//to check if the user won, it checks to see if the numCorrect is 4, if it is then the
+	//reponses are the same so the guesser won
+	if(numCorrect == 4)
+	{
+		//returns true which indicates the human guessed the code
+		return true;
+	}
+	//returns false which indicates that the human as not guessed the secret code yet
+	return false;
 }
-
-const int Response::getCorrect()
+//get function that returns the number of Correct positions
+int Response::getCorrect()
 {
 	return numCorrect;
 }
-
-const int Response::getIncorrect()
+//get function that resturns the number of Incorrect positions
+int Response::getIncorrect()
 {
 	return numIncorrect;
 }
-// set the value of the number of correct guesses for this response
-void Response::setCorrect(const int n)
+//set function to manually set the value of numCorrect
+void Response::setNumCorrect(int const newNumCorrect)
 {
-	numCorrect=n; return;
+	numCorrect = newNumCorrect;
 }
-// set the value of the number of incorrect guesses for this response
-void Response::setIncorrect(const int n)
+//set function to manually set the value of incorrect
+void Response::setNumIncorrect(int const newNumIncorrect)
 {
-	numIncorrect=n; return;
+	numIncorrect = newNumIncorrect;
 }
-
 Response::~Response() {
 	// TODO Auto-generated destructor stub
 }
