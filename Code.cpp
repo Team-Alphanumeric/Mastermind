@@ -11,7 +11,7 @@ using namespace std;
 #include <iostream>
 #include <cstdlib>
 
-
+// constructs a code of randomly generated values
 Code::Code()
 {
 	// TODO Auto-generated constructor stub
@@ -20,6 +20,7 @@ Code::Code()
 		 cd[ii] = (int) rand() % 6;
 	 }
 }
+// constructs a code initialized to the given array
 Code::Code(int arr[])
 {
 	 setCode(arr);
@@ -27,6 +28,7 @@ Code::Code(int arr[])
 Code::~Code() {
 	// TODO Auto-generated destructor stub
 }
+// sets all values of the code when given an array
 void Code::setCode(int arr[])
 {
 	cd.resize(4);
@@ -35,6 +37,7 @@ void Code::setCode(int arr[])
 		cd[ii] = arr[ii];
 	}
 }
+// gets the value of the code in the given position index
 const int Code::getVal(const int index)
 {
 	return cd[index];
@@ -66,18 +69,21 @@ int Code::checkincorrect(Code gs)
 	// iteratively check values from the secret
 	for(int ii=0;ii<4;ii++) // ii is the secret index
 	{
-		// iteratively compare to values from the guess
-		for(int jj=0;jj<4;jj++) // jj is the guess index
+		// check only if secret index isn't a correct match
+		if(cd[ii]!=gs.getVal(ii))
 		{
-			// ignore corresponding numbers and already matched numbers in the guess
-			if((jj!=ii) && (!image[jj]))
-			// if numbers match, denote in the image and move to next index in secret
+			// iteratively compare to values from the guess
+			for(int jj=0;jj<4;jj++) // jj is the guess index
 			{
-				if(cd[ii] == gs.getVal(jj))
+				// ignore corresponding numbers and already matched numbers in the guess
+				if((jj!=ii) && (!image[jj]))
+				// if numbers match, denote in the image and move to next index in secret
 				{
-					image[jj] = true; break;
+					if(cd[ii] == gs.getVal(jj))
+					{
+						image[jj] = true; jj=4; // manually break inner for loop
+					}
 				}
-
 			}
 		}
 	}
