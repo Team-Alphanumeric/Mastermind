@@ -1,9 +1,9 @@
 //============================================================================
 // Name        : masterMindMine.cpp
-// Author      : Alex Agudelo, Thurston Brevette
+// Author      : Alex Agudelo, Thurston Brevett
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : Mastermind: User has 10 tries to guess a 4 digit code
 //============================================================================
 
 #include <iostream>
@@ -12,7 +12,10 @@ using namespace std;
 
 int main()
 {
+	// create a mastermind object
 	Mastermind game1;
-	game1.playGame();
+	// calls playGame to play a single game until the user quits
+	game1.playSeries();
+	// return no error
 	return 0;
 }
