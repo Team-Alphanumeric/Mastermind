@@ -17,21 +17,20 @@ Includes methods to set the code, and check if and how well another code matches
 Notice: the stored code is assumed to be the secret, and the guess must be passed in.
 */
 
-class Code {
-public:
-	Code();
-	Code(int arr[]);
-	// set the code values
-	void setCode(int arr[]);
-	void printCode();
-	void setRandomCode();
-	int checkCorrect(Code gs); // check how many values are in the correct position
-	int checkIncorrect(Code gs); // check how many values are in incorrect position
-	// get the indexed values of a code
-	const int getVal(const int index);
-	virtual ~Code();
-protected:
-	std::vector<int> cd;
+class Code 
+{
+	public:
+		Code(); // create a code with random values
+		Code(const int arr[]); // create a code with passed values
+		void setCode(const int arr[]); // set the code values to the array values
+		void setRandomCode(); // set random values for the code
+		const int getVal(const int index); // get the indexed values in a code
+		const void printCode(); // print the digits in the code
+		const int checkCorrect(Code gs); // check how many values are in the correct position
+		const int checkIncorrect(Code gs); // check how many values are in incorrect position
+		virtual ~Code(); // deconstructor stub
+	protected:
+		std::vector<int> cd; // code vector
 };
 
 #endif /* CODE_H_ */
