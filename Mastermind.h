@@ -13,10 +13,10 @@
 class Mastermind {
 public:
 	Mastermind();
-	void printSecret();
 	void humanGuess();
-	bool getResponse();
+	Response getResponse(Code sc, Code gs);
 	void playGame();
+	void playSeries();
 	virtual ~Mastermind();
 protected:
 	Code secret;
